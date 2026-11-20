@@ -86,6 +86,7 @@ namespace plank::del {
     using formula_ptr            = std::shared_ptr<formula>;
     using formula_deque          = std::deque<formula_ptr>;
 
+    // formula_id to cache truth value of formula at a world whenever it is evaluated
     using formula_id             = unsigned long long;
     using formula_id_deque       = std::deque<formula_id>;
 
