@@ -27,6 +27,7 @@
 
 using namespace plank::del;
 
+// general MC, recursively calling the right MC for each type of formula
 bool model_checker::satisfies(const state_ptr &s, const formula_ptr &f) {
     return std::all_of(s->get_designated_worlds().begin(), s->get_designated_worlds().end(),
         [&](const world_id wd) {
