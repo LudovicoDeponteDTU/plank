@@ -35,6 +35,7 @@ bool model_checker::satisfies(const state_ptr &s, const formula_ptr &f) {
     });
 }
 
+// check if formula holds in a world of a model
 bool model_checker::holds_in(const state_ptr &s, const world_id w, const formula_ptr &f) {
     return std::visit([&](auto &&arg) {
         return model_checker::holds_in(s, w, arg);
@@ -178,6 +179,7 @@ bool model_checker::holds_in(const state_ptr &s, const world_id w, const c_diamo
     return false;        // If we reach this point, then no world reachable via ags from w satisfies f_
 }
 
+// check if formula holds in all designated worlds of a model
 bool model_checker::satisfies_prop_formula(const label &l, const formula_ptr &f) {
     return std::visit([&](auto &&arg) {
         return model_checker::satisfies_prop_formula(l, arg);
