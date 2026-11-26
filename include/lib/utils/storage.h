@@ -77,10 +77,16 @@ namespace plank::utils {
             return id == 0;
         }
 
+        // this returns a constant reference (hence the &)
+        // second const is there because the function doesn't change the attributes of the classs
         const std::deque<Elem_ptr> &get_elements() const {
             return m_elements;
         }
 
+        const std::size_t size() const {
+            return m_elements.size();
+        }
+        
     private:
         std::map<Elem, Elem_id> m_elements_ids;
         std::deque<Elem_ptr> m_elements;
